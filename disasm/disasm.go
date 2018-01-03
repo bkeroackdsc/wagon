@@ -184,7 +184,7 @@ func Disassemble(fn wasm.Function, module *wasm.Module) (*Disassembly, error) {
 			// Same with ops.Br/BrIf, we subtract 2 instead of 1
 			// to get the depth of the *parent* block of the branch
 			// we want to take.
-			prevDepthIndex := stackDepths.Len() - 2
+			prevDepthIndex := stackDepths.Len() - 1
 			prevDepth := stackDepths.Get(prevDepthIndex)
 
 			if op != ops.Else && blockSig != wasm.BlockTypeEmpty && !instr.Unreachable {
